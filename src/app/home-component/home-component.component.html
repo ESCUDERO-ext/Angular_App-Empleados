@@ -1,1 +1,54 @@
-<p>home-component works!</p>
+<br><br>
+<div class="container">
+
+  <div class="col" style="text-align: center;"><h1>{{titulo}}</h1></div>
+
+  <br><br>
+
+  <form class="form-group row">
+
+    <!-- Cuadro Nombre -->
+    <div class="form-group col-md-3">
+
+      <label for="nombre">Nombre:</label>
+      <input type="text" name="nombre" id="nombre" placeholder="Nombre" class="form-control" [(ngModel)]="cuadroNombre">
+
+    </div>
+
+    <!-- Cuadro Apellido -->
+    <div class="form-group col-md-3">
+
+      <label for="apellido">Apellido:</label>
+      <input type="text" name="apellido" id="apellido" placeholder="Apellido" class="form-control" [(ngModel)]="cuadroApellido">
+
+    </div>
+
+    <!-- Cuadro Cargo -->
+    <div class="form-group col-md-3">
+
+      <label for="cargo">Cargo:</label>
+      <input type="text" name="cargo" id="cargo" placeholder="Cargo" class="form-control" [(ngModel)]="cuadroCargo">
+
+    </div>
+
+    <!-- Cuadro Salario -->
+    <div class="form-group col-md-3">
+
+      <label for="salario">Salario:</label>
+      <input type="text" name="salario" id="salario" placeholder="Salario" class="form-control" [(ngModel)]="cuadroSalario">
+
+    </div>
+
+    <div class="col">
+
+      <button type="submit" class="btn btn-primary" (click)="agregarEmpleado()" style="margin-top: 35px;">Agregar</button>
+
+    </div>
+
+  </form>
+
+</div>
+
+<br><br><br>
+
+<app-empleado-hijo-c *ngFor="let empleado of empleados; let i=index" [empleadoDeLista]="empleado" [indice]="i"></app-empleado-hijo-c>
