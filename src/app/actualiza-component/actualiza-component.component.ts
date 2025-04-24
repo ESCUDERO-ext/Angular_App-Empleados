@@ -40,19 +40,27 @@ export class ActualizaComponentComponent implements OnInit {
 
   actualizaEmpleado(){
   
-      let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
-      //this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
-      this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
+    let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
+    //this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
+    this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
 
-      this.router.navigate(['']);
+    this.router.navigate(['']);
 
-    }
+  }
   
-    cuadroNombre:string="";
-    cuadroApellido:string="";
-    cuadroCargo:string="";
-    cuadroSalario:number=0;
+  eliminaEmpleado(){
 
-    indice:number;
+    this.empleadosService.eliminarEmpleado(this.indice);
+
+    this.router.navigate(['']);
+
+  }
+  
+  cuadroNombre:string="";
+  cuadroApellido:string="";
+  cuadroCargo:string="";
+  cuadroSalario:number=0;
+
+  indice:number;
 
 }
