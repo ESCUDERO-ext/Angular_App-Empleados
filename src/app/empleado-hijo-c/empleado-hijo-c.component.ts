@@ -13,4 +13,11 @@ export class EmpleadoHijoCComponent {
 
   @Input() indice:number;
 
+
+  arrayCaracteristicas = [''];
+
+  agregarCaracteristica(nuevaCaracteristica:string){
+    this.arrayCaracteristicas.push(nuevaCaracteristica);
+  }
+
 }
