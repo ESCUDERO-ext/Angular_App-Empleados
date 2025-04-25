@@ -26,6 +26,10 @@ export class HomeComponentComponent implements OnInit{
 
       console.log(misEmpleados);
 
+      this.empleados=Object.values(misEmpleados); // Convertir el objeto a un array de empleados
+
+      this.empleadosService.setEmpleados(this.empleados); // Guardar los empleados en el servicio
+
     });
   }
 
