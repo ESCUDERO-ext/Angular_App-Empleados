@@ -33,4 +33,16 @@ export class DataServices{
             error => console.log("Error: " + error)
         );
     }*/
+
+    actualizarEmpleado(indice:number, empleado:Empleado){
+
+        let url='https://mis-clientes-fa6e8-default-rtdb.europe-west1.firebasedatabase.app/datos/' + indice + '.json';
+
+        this.httpClient.put(url, empleado).subscribe({
+            next: (response) => console.log("Se ha modificado correctamente el empleado: " + response),
+            error: (error) => console.log("Error: " + error),
+            complete: () => console.log("Operación completada")
+        });
+
+    }
 }
