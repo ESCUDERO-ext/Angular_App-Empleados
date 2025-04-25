@@ -19,7 +19,14 @@ export class HomeComponentComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.empleados=this.empleadosService.empleados;
+    //this.empleados=this.empleadosService.empleados;
+
+    //console.log(this.empleadosService.obtenerEmpleados());
+    this.empleadosService.obtenerEmpleados().subscribe(misEmpleados=>{
+
+      console.log(misEmpleados);
+
+    });
   }
 
   empleados:Empleado[]=[];
