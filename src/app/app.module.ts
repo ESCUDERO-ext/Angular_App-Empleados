@@ -15,6 +15,9 @@ import { ContactoComponentComponent } from './contacto-component/contacto-compon
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizaComponentComponent } from './actualiza-component/actualiza-component.component';
 import { ErrorPersonalizadoComponent } from './error-personalizado/error-personalizado.component';
+import { DataServices } from './data.services';
+//import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 const appRoutes:Routes=[
 
@@ -43,9 +46,15 @@ const appRoutes:Routes=[
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    //HttpClientModule está deprecated, se recomienda usar provideHttpClient() en providers
   ],
-  providers: [ServicioEmpleadosService, EmpleadosService],
+  providers: [
+    ServicioEmpleadosService,
+    EmpleadosService,
+    DataServices,
+    provideHttpClient() // Reemplaza HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
