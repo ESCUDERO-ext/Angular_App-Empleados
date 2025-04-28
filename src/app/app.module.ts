@@ -18,6 +18,7 @@ import { ErrorPersonalizadoComponent } from './error-personalizado/error-persona
 import { DataServices } from './data.services';
 //import { HttpClientModule } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes:Routes=[
 
@@ -26,6 +27,7 @@ const appRoutes:Routes=[
   {path:'quienes', component:QuienesComponentComponent},
   {path:'contacto', component:ContactoComponentComponent},
   {path:'actualiza/:id', component:ActualizaComponentComponent},
+  {path:'login', component:LoginComponent},
   {path:'**', component:ErrorPersonalizadoComponent} //** significa que no existe la ruta, es un wildcard (El path a la página de ERRROR debe estar siempre el último)
   
 ];
@@ -40,7 +42,8 @@ const appRoutes:Routes=[
     QuienesComponentComponent,
     ContactoComponentComponent,
     ActualizaComponentComponent,
-    ErrorPersonalizadoComponent
+    ErrorPersonalizadoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

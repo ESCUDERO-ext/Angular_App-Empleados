@@ -67,7 +67,6 @@ actualizaEmpleado(){
     let miEmpleado=new Empleado(this.cuadroNombre, this.cuadroApellido, this.cuadroCargo, this.cuadroSalario);
     //this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
     this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
-
   }else{
     this.empleadosService.eliminarEmpleado(this.indice);
   }
