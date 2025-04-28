@@ -8,13 +8,13 @@ export class DataServices{
     constructor(private httpClient:HttpClient){}
 
     cargarEmpleados() {
-        return this.httpClient.get('https://mis-clientes-fa6e8-default-rtdb.europe-west1.firebasedatabase.app/datos.json');
+        return this.httpClient.get('https://mis-clientes-dfd69-default-rtdb.europe-west1.firebasedatabase.app/datos.json');
     }
 
     // Método ACTUALIZADO: Se cambió el formato de subscribe porque el uso de múltiples argumentos (next, error, complete)
     // está deprecated en RxJS. Ahora se utiliza un observer como argumento, que es más legible y compatible con futuras versiones.
     guardarEmpleados(empleados: Empleado[]) {
-        this.httpClient.put('https://mis-clientes-fa6e8-default-rtdb.europe-west1.firebasedatabase.app/datos.json', empleados).subscribe({
+        this.httpClient.put('https://mis-clientes-dfd69-default-rtdb.europe-west1.firebasedatabase.app/datos.json', empleados).subscribe({
             next: (response) => console.log("Se han guardado los empleados: " + response),
             error: (error) => console.log("Error: " + error),
             complete: () => console.log("Operación completada")
@@ -36,7 +36,7 @@ export class DataServices{
 
     actualizarEmpleado(indice:number, empleado:Empleado){
 
-        let url='https://mis-clientes-fa6e8-default-rtdb.europe-west1.firebasedatabase.app/datos/' + indice + '.json';
+        let url='https://mis-clientes-dfd69-default-rtdb.europe-west1.firebasedatabase.app/datos/' + indice + '.json';
 
         this.httpClient.put(url, empleado).subscribe({
             next: (response) => console.log("Se ha modificado correctamente el empleado: " + response),

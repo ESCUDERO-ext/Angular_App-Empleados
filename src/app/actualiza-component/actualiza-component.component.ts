@@ -75,6 +75,11 @@ actualizaEmpleado(){
     this.router.navigate(['']);
   }
 
+  // Forzar la recarga de la página
+  this.router.navigate(['']).then(() => {
+    window.location.reload(); // Recargar la página completamente
+  });
+
 }
 
 cuadroNombre:string="";
