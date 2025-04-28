@@ -39,10 +39,23 @@ export class DataServices{
         let url='https://mis-clientes-dfd69-default-rtdb.europe-west1.firebasedatabase.app/datos/' + indice + '.json';
 
         this.httpClient.put(url, empleado).subscribe({
-            next: (response) => console.log("Se ha modificado correctamente el empleado: " + response),
+            next: () => console.log("Se ha modificado correctamente el empleado: " + indice),
             error: (error) => console.log("Error: " + error),
             complete: () => console.log("Operación completada")
         });
 
     }
+
+    eliminarEmpleado(indice:number){
+
+        let url='https://mis-clientes-dfd69-default-rtdb.europe-west1.firebasedatabase.app/datos/' + indice + '.json';
+
+        this.httpClient.delete(url).subscribe({
+            next: () => console.log("Se ha eliminado correctamente el empleado: " + indice),
+            error: (error) => console.log("Error: " + error),
+            complete: () => console.log("Operación completada")
+        });
+
+    }
+
 }

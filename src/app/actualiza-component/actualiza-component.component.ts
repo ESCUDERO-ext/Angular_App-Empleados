@@ -68,16 +68,14 @@ actualizaEmpleado(){
     //this.miServicio.muestraMensaje("Nombre del empleado: " + miEmpleado.nombre);
     this.empleadosService.actualizarEmpleado(this.indice, miEmpleado);
 
-    this.router.navigate(['']);
   }else{
     this.empleadosService.eliminarEmpleado(this.indice);
-
-    this.router.navigate(['']);
   }
 
-  // Forzar la recarga de la página
-  this.router.navigate(['']).then(() => {
-    window.location.reload(); // Recargar la página completamente
+  // Recargar los datos desde la base de datos
+  this.empleadosService.obtenerEmpleados().subscribe(misEmpleados => {
+    this.empleadosService.setEmpleados(Object.values(misEmpleados)); // Sincronizar la lista local
+    this.router.navigate(['']); // Navegar de vuelta al home
   });
 
 }

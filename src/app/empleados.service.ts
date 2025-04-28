@@ -68,5 +68,9 @@ export class EmpleadosService{
 
     this.empleados.splice(indice, 1);
 
+    this.dataService.eliminarEmpleado(indice); // Eliminar el empleado de la base de datos
+
+    if (this.empleados!=null) this.dataService.guardarEmpleados(this.empleados); // Guardar los empleados actualizados en la base de datos si no está vacío
+    
   }
 }
