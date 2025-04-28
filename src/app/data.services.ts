@@ -1,14 +1,16 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Empleado } from "./empeado.model";
+import { LoginService } from "./login/login.service";
 
 @Injectable()
 export class DataServices{
 
-    constructor(private httpClient:HttpClient){}
+    constructor(private httpClient:HttpClient, private loginService:LoginService){}
 
     cargarEmpleados() {
-        return this.httpClient.get('https://mis-clientes-dfd69-default-rtdb.europe-west1.firebasedatabase.app/datos.json');
+        const token = this.loginService.getIdToken(); // Obtener el token de autenticación
+        return this.httpClient.get('https://mis-clientes-dfd69-default-rtdb.europe-west1.firebasedatabase.app/datos.json?auth=' + token);
     }
 
     // Método ACTUALIZADO: Se cambió el formato de subscribe porque el uso de múltiples argumentos (next, error, complete)
