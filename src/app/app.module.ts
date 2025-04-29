@@ -20,6 +20,7 @@ import { DataServices } from './data.services';
 import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
+import { CookieService } from 'ngx-cookie-service'; // Importa el servicio de cookies
 
 const appRoutes:Routes=[
 
@@ -58,7 +59,8 @@ const appRoutes:Routes=[
     EmpleadosService,
     DataServices,
     provideHttpClient(), // Reemplaza HttpClientModule
-    LoginService
+    LoginService,
+    CookieService // Proporciona el servicio de cookies
   ],
   bootstrap: [AppComponent]
 })
