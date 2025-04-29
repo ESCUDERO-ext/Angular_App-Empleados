@@ -1,5 +1,5 @@
 # AppEmpleados
-![image](https://github.com/user-attachments/assets/ea285cd9-a69b-4a82-903b-c67db6b56328)
+![image](https://github.com/user-attachments/assets/002fde27-5f47-4aad-9c04-11e4abf74367)
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
 
