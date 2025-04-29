@@ -21,13 +21,14 @@ import { provideHttpClient } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './login/login.service';
 import { CookieService } from 'ngx-cookie-service'; // Importa el servicio de cookies
+import { LoginGuardian } from './login/login-guardian';
 
 const appRoutes:Routes=[
 
   {path:'', component:HomeComponentComponent},
   {path:'proyectos', component:ProyectosComponentComponent},
-  {path:'quienes', component:QuienesComponentComponent},
-  {path:'contacto', component:ContactoComponentComponent},
+  {path:'quienes', component:QuienesComponentComponent, canActivate:[LoginGuardian]}, //Protegemos la ruta de quienes con el guardián de login
+  {path:'contacto', component:ContactoComponentComponent, canActivate:[LoginGuardian]}, //Protegemos la ruta de contacto con el guardián de login
   {path:'actualiza/:id', component:ActualizaComponentComponent},
   {path:'login', component:LoginComponent},
   {path:'**', component:ErrorPersonalizadoComponent} //** significa que no existe la ruta, es un wildcard (El path a la página de ERRROR debe estar siempre el último)
@@ -60,7 +61,8 @@ const appRoutes:Routes=[
     DataServices,
     provideHttpClient(), // Reemplaza HttpClientModule
     LoginService,
-    CookieService // Proporciona el servicio de cookies
+    CookieService, // Proporciona el servicio de cookies
+    LoginGuardian // Proporciona el guardián de login
   ],
   bootstrap: [AppComponent]
 })

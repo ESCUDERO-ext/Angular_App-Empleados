@@ -50,8 +50,8 @@ export class LoginService {
         firebase.auth().signOut().then(()=>{
             this.token="";
             this.cookies.set("token", this.token); // Limpiar el token de la cookie
-            this.router.navigate(['']);
-            window.location.reload(); // Recargar la página para reflejar el cambio de estado
+            this.router.navigate(['/']);
+            //window.location.reload(); // (A mi parece que no me hace falta) Recargar la página para reflejar el cambio de estado
         });
     }
 
