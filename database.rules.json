@@ -1,0 +1,7 @@
+{
+  "rules": {
+    ".read": "auth!=null",  // Caduca el poder leer en una fecha determinada: ".read": "now < 1748383200000" // 2025-5-28
+      												// Si se pone como "true" puedes leer y escribir tanto si estas autenticado o no
+    ".write": "auth!=null", // Caduca el poder escribir en una fecha determinada: ".write": "now < 1748383200000" // 2025-5-28
+  }
+}
